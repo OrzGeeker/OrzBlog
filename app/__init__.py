@@ -9,6 +9,7 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 import os
 
 app = Flask(__name__)
+
 app.config.from_object(Config)
 
 db = SQLAlchemy(app)
@@ -58,6 +59,7 @@ if not app.debug:
 
     app.logger.setLevel(logging.INFO)
     app.logger.info('Microblog startup')
+
 
 from app import routes, models, errors
 
