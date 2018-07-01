@@ -34,13 +34,6 @@ if not app.debug:
         title='Microblog Failure'
         credentials=auth
 
-        print(host)
-        print(fromaddr)
-        print(toaddrs)
-        print(title)
-        print(credentials)
-        print(secure)
-
         mail_handler=SMTPHandler(
             mailhost=host,
             fromaddr=fromaddr,
