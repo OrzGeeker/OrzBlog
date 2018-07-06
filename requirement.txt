@@ -4,5 +4,6 @@ flask-sqlalchemy
 flask-migrate
 flask-mail
 pyjwt
+flask-bootstrap
 
 
