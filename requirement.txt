@@ -5,5 +5,5 @@ flask-migrate
 flask-mail
 pyjwt
 flask-bootstrap
-
+flask-moment
 
