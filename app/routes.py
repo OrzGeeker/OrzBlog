@@ -1,5 +1,5 @@
 from flask import render_template
-from flask import request
+from flask import request, g
 from flask import flash, redirect, url_for
 
 from flask_login import current_user
@@ -8,6 +8,7 @@ from flask_login import logout_user
 from flask_login import login_required
 
 from flask_babel import _
+from flask_babel import get_locale
 
 from werkzeug.urls import url_parse
 from datetime import datetime
@@ -29,6 +30,8 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+    g.locale=str(get_locale())
+
 
 @app.route('/', methods=['GET','POST'])
 @app.route('/index', methods=['GET','POST'])
@@ -127,14 +130,14 @@ def edit_profile():
 def follow(username):
     user =  User.query.filter_by(username=username).first()
     if user is None:
-        flash(_('User %(username) not found.',username=username))
+        flash(_('User %(username)s not found.',username=username))
         return redirect(url_for('index'))
     if user == current_user:
         flash(_('You cannot follow yourself!'))
         return redirect(url_for('user',username=username))
     current_uesr.follow(username)
     db.session.commit()
-    flash(_('You are following %(username)',username=username))
+    flash(_('You are following %(username)s',username=username))
     return redirect(url_for('user',username=username))
 
 @app.route('/unfollow/<username>')
@@ -142,13 +145,13 @@ def follow(username):
 def unfollow(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
-        flash(_('User %(username) not found.',username=username))
+        flash(_('User %(username)s not found.',username=username))
         return redirect(url_for('index'))
     if user == current_user:
-        flash(_('You cannot unfollow %(username)',username=username))
+        flash(_('You cannot unfollow %(username)s',username=username))
         return redirect(url_for('user',username=username))
     current_user.unfollow(user)
-    flash(_('You are not following %(username)',username=username))
+    flash(_('You are not following %(username)s',username=username))
     return redirect(url_for('user',username=username))
 
 @app.route('/explore')
