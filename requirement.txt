@@ -8,3 +8,5 @@ flask-bootstrap
 flask-moment
 flask-babel
 flask-wtf
+guess-language_spirit
+request

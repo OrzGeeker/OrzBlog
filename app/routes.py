@@ -1,5 +1,5 @@
 from flask import render_template
-from flask import request, g
+from flask import request, g, jsonify
 from flask import flash, redirect, url_for
 
 from flask_login import current_user
@@ -24,6 +24,9 @@ from app.forms import EditProfileForm
 from app.models import User
 from app.models import Post
 from app.email import send_password_reset_mail
+from app.translate import translate
+
+from guess_language import guess_language
 
 @app.before_request
 def before_request():
@@ -32,6 +35,12 @@ def before_request():
         db.session.commit()
     g.locale=str(get_locale())
 
+@app.route('/translate', methods=['POST'])
+@login_required
+def translate_text():
+    return jsonify({'text': translate(request.form['text'],
+                                      request.form['source_language'],
+                                      request.form['dest_language'])})
 
 @app.route('/', methods=['GET','POST'])
 @app.route('/index', methods=['GET','POST'])
@@ -39,8 +48,12 @@ def before_request():
 def index():
     form = PostForm()
     if form.validate_on_submit():
+        language=guess_language(form.post.data)
+        if language == 'UNKNOWN' or len(language) > 5:
+            language=''
         post = Post(body=form.post.data,
-                    author=current_user)
+                    author=current_user,
+                    language=language)
         db.session.commit()
         flash(_('Your post is now live'))
         return redirect(url_for('index'))
