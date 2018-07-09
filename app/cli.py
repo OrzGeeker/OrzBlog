@@ -1,11 +1,12 @@
 from app import app
+import click
+import os
 
 @app.cli.group()
 def translate():
     """Translation and Localization commands."""
     pass
 
-import os
 
 @translate.command()
 def update():
@@ -22,7 +23,6 @@ def compile():
     if os.system('pybabel compile -d app/translations'):
         raise RuntimeError('compile command failed')
 
-import click
 
 @translate.command()
 @click.argument('lang')
