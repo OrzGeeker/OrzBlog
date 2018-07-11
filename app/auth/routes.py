@@ -10,7 +10,6 @@ from flask_babel import _
 
 from werkzeug.urls import url_parse
 
-from app import app
 from app import db
 from app.auth.forms import LoginForm
 from app.auth.forms import RegistrationForm
