@@ -10,6 +10,18 @@ from wtforms.validators import DataRequired
 from wtforms.validators import ValidationError
 from wtforms.validators import Length
 
+from flask import request
+
+class SearchForm(FlaskForm):
+    q=StringField(_l('Search'),validators=[DataRequired()])
+
+    def __init__(self,*args,**kwargs):
+        if 'formdata' not in kwargs:
+            kwargs['formdata']=request.args
+        if 'csrf_enable' not in kwargs:
+            kwargs['csrf_enable']=False
+
+        super(SearchForm,self).__init__(*args,**kwargs)
 
 class EditProfileForm(FlaskForm):
     username=StringField(_l('Username'), validators=[DataRequired()])
