@@ -1,5 +1,5 @@
 from app.models import User, Post
-from app import cli, create_app
+from app import cli, create_app,db
 
 app = create_app()
 cli.register(app)
