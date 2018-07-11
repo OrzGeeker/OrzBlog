@@ -11,6 +11,8 @@ class Config(object):
     POSTS_PER_PAGE=25
     LANGUAGES=['zh','en']
     ADMINS=['824219521@qq.com']
+    ELASTICSEARCH_URL=os.environ.get('ELASTICSEARCH_URL')
+
     SECRET_KEY = os.environ.get('SECRET_KEY')
     MAIL_SERVER= os.environ.get('MAIL_SERVER')
     MAIL_PORT=int(os.environ.get('MAIL_PORT'))
