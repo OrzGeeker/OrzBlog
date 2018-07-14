@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-15 00:18+0800\n"
+"POT-Creation-Date: 2018-07-15 00:44+0800\n"
 "PO-Revision-Date: 2018-07-08 02:22+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -137,7 +137,7 @@ msgstr "发送消息"
 #: app/templates/_post.html:16
 #, python-format
 msgid "%(username)s said %(when)s"
-msgstr "%(username)s 在 %（when)s 说"
+msgstr "%(username)s 在 %(when)s 说"
 
 #: app/templates/_post.html:31
 msgid "Translate"
@@ -146,6 +146,11 @@ msgstr "翻译"
 #: app/templates/base.html:23
 msgid "Error: Could not contact server."
 msgstr "错误：连接不到服务器"
+
+#: app/templates/base.html:90 app/templates/base.html:92
+#: app/templates/base.html:100
+msgid "Microblog"
+msgstr "微博客"
 
 #: app/templates/base.html:114
 msgid "Home"
@@ -262,8 +267,7 @@ msgstr "点击这里"
 msgid ""
 "Alternatively, you can paste the following link in your browser's address"
 " bar:"
-msgstr ""
-"或者， 你可以复制以下链接到你的浏览器地址栏:"
+msgstr "或者， 你可以复制以下链接到你的浏览器地址栏:"
 
 #: app/templates/auth/email/reset_password.html:10
 msgid "If you have not requested a password reset simply ignore this message."
@@ -320,3 +324,4 @@ msgstr "关注"
 #: app/templates/main/user.html:24
 msgid "Edit your profile"
 msgstr "编辑你的用户信息"
+

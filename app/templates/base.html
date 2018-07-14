@@ -87,9 +87,9 @@
 
 {% block title %}
 	{% if title %}
-		{{ title }} - Microblog
+	{{ title }} - {{ _('Microblog') }}
 	{% else %}
-		Welcome to Microblog
+		Welcome to {{ _('Microblog') }}
 	{% endif %}
 {% endblock %}
 
@@ -97,7 +97,7 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="{{ url_for('main.index') }}">Microblog</a>
+				<a class="navbar-brand" href="{{ url_for('main.index') }}">{{ _('Microblog') }}</a>
 				<button type="button" 
 					class="navbar-toggle collapsed" 
 					data-toggle="collapse"
