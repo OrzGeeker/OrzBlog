@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-15 00:44+0800\n"
+"POT-Creation-Date: 2018-07-15 22:44+0800\n"
 "PO-Revision-Date: 2018-07-08 02:22+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: app/__init__.py:29
+#: app/__init__.py:32
 msgid "Please log in to access this page."
 msgstr "登录后访问"
 
@@ -126,13 +126,21 @@ msgstr "你不能取消关注%(username)s"
 msgid "You are not following %(username)s"
 msgstr "你当前没有%(username)s"
 
-#: app/main/routes.py:181
+#: app/main/routes.py:182
 msgid "Your message has been sent."
 msgstr "你的消息已经发现出去了"
 
-#: app/main/routes.py:183
+#: app/main/routes.py:184
 msgid "Send Message"
 msgstr "发送消息"
+
+#: app/main/routes.py:221
+msgid "An export task is currenly in progress"
+msgstr "有一个导出任务正在进行"
+
+#: app/main/routes.py:223
+msgid "Exporting posts..."
+msgstr "正在导出内容..."
 
 #: app/templates/_post.html:16
 #, python-format
@@ -147,32 +155,32 @@ msgstr "翻译"
 msgid "Error: Could not contact server."
 msgstr "错误：连接不到服务器"
 
-#: app/templates/base.html:90 app/templates/base.html:92
-#: app/templates/base.html:100
+#: app/templates/base.html:103 app/templates/base.html:105
+#: app/templates/base.html:123
 msgid "Microblog"
 msgstr "微博客"
 
-#: app/templates/base.html:114
+#: app/templates/base.html:127
 msgid "Home"
 msgstr "首页"
 
-#: app/templates/base.html:115
+#: app/templates/base.html:128
 msgid "Explore"
 msgstr "随便看看"
 
-#: app/templates/base.html:127
+#: app/templates/base.html:140
 msgid "Login"
 msgstr "登录"
 
-#: app/templates/base.html:130 app/templates/messages.html:4
+#: app/templates/base.html:143 app/templates/messages.html:4
 msgid "Messages"
 msgstr "消息"
 
-#: app/templates/base.html:139
+#: app/templates/base.html:152
 msgid "Profile"
 msgstr "用户信息"
 
-#: app/templates/base.html:140
+#: app/templates/base.html:153
 msgid "Logout"
 msgstr "退出登录"
 
@@ -205,25 +213,23 @@ msgstr "给%(recipient)s发消息"
 msgid "Last seen on"
 msgstr "上次访问"
 
-#: app/templates/user_popup.html:22
-#, python-format
-msgid "%(count)d followers"
-msgstr "$(count)d 粉丝"
+#: app/templates/main/user.html:19 app/templates/user_popup.html:22
+msgid "followers"
+msgstr "粉丝"
 
-#: app/templates/user_popup.html:23
-#, python-format
-msgid "%(count)d following"
-msgstr "$(count)d 关注"
+#: app/templates/main/user.html:19 app/templates/user_popup.html:23
+msgid "following"
+msgstr "关注"
 
-#: app/templates/main/user.html:28 app/templates/user_popup.html:28
+#: app/templates/main/user.html:35 app/templates/user_popup.html:28
 msgid "Follow"
 msgstr "关注"
 
-#: app/templates/main/user.html:32 app/templates/user_popup.html:32
+#: app/templates/main/user.html:39 app/templates/user_popup.html:32
 msgid "Unfollow"
 msgstr "取消关注"
 
-#: app/templates/main/user.html:38 app/templates/user_popup.html:37
+#: app/templates/main/user.html:45 app/templates/user_popup.html:37
 msgid "Send private message"
 msgstr "发私信"
 
@@ -297,11 +303,11 @@ msgstr "编辑用户信息"
 msgid "Hello,"
 msgstr "你好，"
 
-#: app/templates/main/index.html:19 app/templates/main/user.html:55
+#: app/templates/main/index.html:19 app/templates/main/user.html:62
 msgid "Newer posts"
 msgstr "新内容"
 
-#: app/templates/main/index.html:24 app/templates/main/user.html:60
+#: app/templates/main/index.html:24 app/templates/main/user.html:67
 msgid "Older posts"
 msgstr "旧内容"
 
@@ -313,15 +319,10 @@ msgstr "用户:"
 msgid "Last seen on: "
 msgstr "上次访问："
 
-#: app/templates/main/user.html:19
-msgid "followers"
-msgstr "粉丝"
-
-#: app/templates/main/user.html:19
-msgid "following"
-msgstr "关注"
-
 #: app/templates/main/user.html:24
 msgid "Edit your profile"
 msgstr "编辑你的用户信息"
 
+#: app/templates/main/user.html:29
+msgid "Export your posts"
+msgstr "导入你的内容"

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+killall redis-server
 git clean -dfx
 virtualenv venv
 . venv/bin/activate

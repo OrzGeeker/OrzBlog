@@ -32,7 +32,7 @@
 					timer = setTimeout(function(){
 						timer=null
 						xhr = $.ajax(
-							'/main/user/'+elem.first().text().trim() + '/popup').done(
+							'/user/'+elem.first().text().trim() + '/popup').done(
 								function(data) {
 									xhr = null
 
