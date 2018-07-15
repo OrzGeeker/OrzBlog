@@ -1,6 +1,7 @@
 from app.models import User, Post
 from app import cli, create_app,db
 from app.models import Notification, Message
+from app.models import Task
 
 app = create_app()
 cli.register(app)
@@ -11,6 +12,7 @@ def make_shell_context():
             'User':User,
             'Post':Post,
             'Message':Message,
-            'Notification':Notification}
+            'Notification':Notification,
+            'Task':Task}
 
 

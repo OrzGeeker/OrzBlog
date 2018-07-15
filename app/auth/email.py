@@ -13,7 +13,14 @@ def send_password_reset_mail(user):
               html_body = render_template('auth/email/reset_password.html', user=user, token=token))
 
 
-def send_mail(subject, sender, recipients,text_body, html_body):
+def send_mail(subject,
+              sender,
+              recipients,
+              text_body,
+              html_body,
+              attachments=None,
+              sync=False):
+
     msg = Message(subject = subject,
                   sender = sender,
                   recipients=recipients)
@@ -21,7 +28,14 @@ def send_mail(subject, sender, recipients,text_body, html_body):
     msg.body=text_body
     msg.html=html_body
 
-    Thread(target=send_async_mail, args=(current_app._get_current_object(),msg)).start()
+    if attachments:
+        for attachment in attachments:
+            msg.attach(*attachment)
+    if sync:
+        mail.send(msg)
+    else:
+        Thread(target=send_async_mail,
+               args=(current_app._get_current_object(),msg)).start()
 
 def send_async_mail(app,msg):
     with app.app_context():
