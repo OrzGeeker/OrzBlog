@@ -325,4 +325,4 @@ msgstr "编辑你的用户信息"
 
 #: app/templates/main/user.html:29
 msgid "Export your posts"
-msgstr "导入你的内容"
+msgstr "导出你的内容"
