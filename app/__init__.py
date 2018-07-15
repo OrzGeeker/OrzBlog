@@ -54,7 +54,7 @@ def create_app(config_class=Config):
     app.register_blueprint(auth_bp, url_prefix='/auth')
 
     from app.main import bp as main_bp
-    app.register_blueprint(main_bp, url_prefix='/main')
+    app.register_blueprint(main_bp)
 
     if not app.debug and not app.testing:
 
@@ -79,8 +79,7 @@ def create_app(config_class=Config):
                 toaddrs=toaddrs,
                 subject=title,
                 credentials=auth,
-                secure=secure,
-                timeout=5.0
+                secure=secure
                 )
 
             mail_handler.setLevel(logging.ERROR)
