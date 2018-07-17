@@ -25,4 +25,11 @@ $ sudo systemctl enable elasticsearch
 
 ## Install Redis
 
-The Redis service support the task query function for blog
+The Redis service support the task queue function for blog
+
+
+## How make this blog to real
+
+learn from site: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+
+And the corresponding course by the author is: https://courses.miguelgrinberg.com/
